@@ -1,0 +1,29 @@
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes ghactPulse { 50% { opacity: 0.45; } }
+
+@keyframes charIn {
+  0% { opacity: 0; transform: translateY(0.4em); filter: blur(6px); }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes jsonRow {
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boot-row { opacity: 1 !important; transition: none !important; }
+  .vf-char.in {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  .ssh-caret { animation: none !important; }
+  .endpoint-res pre .row {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .trace-link::before { transition: none !important; }
+  .ghact-loading .ghact-grid { animation: none !important; }
+}

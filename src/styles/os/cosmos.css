@@ -1,0 +1,176 @@
+/* === Cosmos design tokens — ported from sika apps/web ===
+   Namespaced under --color-cosmos-* / --cosmos-* so they coexist with
+   the existing --bg / --fg / --accent palette in tokens.css.
+*/
+:root {
+  --cosmos-violet: hsl(262 60% 48%);
+  --cosmos-cyan: hsl(190 80% 50%);
+
+  --color-cosmos-text-bright: hsl(258 100% 96%);
+  --color-cosmos-text-muted: hsl(215 18% 58%);
+
+  --color-cosmos-violet-edge: hsl(262 60% 70% / 0.14);
+  --color-cosmos-violet-hero-peak: hsl(262 70% 50% / 0.2);
+  --color-cosmos-cyan-edge: hsl(190 80% 50% / 0.14);
+
+  --color-cosmos-hero-ink: hsl(250 55% 4% / 0.55);
+  --color-cosmos-hero-ink-mid: hsl(250 55% 4% / 0.25);
+  --color-cosmos-hero-ink-faint: hsl(250 55% 4% / 0.08);
+  --color-cosmos-hero-ink-strong: hsl(250 55% 4% / 0.72);
+  --color-cosmos-hero-shadow: hsl(0 0% 0% / 0.45);
+
+  /* HSL triplets for alpha composition at usage sites. */
+  --color-cosmos-violet-500-hsl: 261 100% 77%;
+  --color-cosmos-cyan-500-hsl: 198 100% 77%;
+  --color-cosmos-ink-800-hsl: 240 50% 0.5%;
+}
+
+/* === Background canvas positioning ===
+   StarfieldCanvas + ShootingStars both render with this class.
+*/
+.page-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* === Cosmos hero wireframe surface (mounted as backdrop inside .hero) === */
+.cosmos-hero-canvas-wrap {
+  position: absolute;
+  inset: 0;
+}
+.cosmos-hero-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 0.9;
+}
+
+/* === Cursor effects: halo + click ripple ===
+   Halo follows the cursor via --cursor-x/--cursor-y CSS vars (set in JS).
+   Body gets .cursor-hot when over interactive elements; halo grows + cyans.
+*/
+.cursor-halo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 56px;
+  height: 56px;
+  margin-left: -28px;
+  margin-top: -28px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    hsl(var(--color-cosmos-violet-500-hsl) / 0.42),
+    transparent 65%
+  );
+  pointer-events: none;
+  z-index: 9999;
+  translate: var(--cursor-x, -200px) var(--cursor-y, -200px);
+  scale: 0.55;
+  transition:
+    scale 0.2s cubic-bezier(0.2, 0.7, 0.2, 1),
+    background 0.22s ease;
+  will-change: translate, scale;
+}
+.cursor-halo::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow:
+    0 0 4px hsl(var(--color-cosmos-violet-500-hsl) / 1),
+    0 0 14px hsl(var(--color-cosmos-violet-500-hsl) / 0.85),
+    0 0 24px hsl(var(--color-cosmos-violet-500-hsl) / 0.5);
+  transform: translate(-50%, -50%);
+  transition: background 0.22s ease, box-shadow 0.22s ease;
+}
+body.cursor-hot .cursor-halo {
+  background: radial-gradient(
+    circle,
+    hsl(var(--color-cosmos-cyan-500-hsl) / 0.55),
+    transparent 60%
+  );
+  scale: 1;
+}
+body.cursor-hot .cursor-halo::after {
+  background: #fff;
+  box-shadow:
+    0 0 5px hsl(var(--color-cosmos-cyan-500-hsl) / 1),
+    0 0 16px hsl(var(--color-cosmos-cyan-500-hsl) / 0.9),
+    0 0 28px hsl(var(--color-cosmos-cyan-500-hsl) / 0.6);
+}
+
+/* Hide the OS cursor, let the halo + dot do the work.
+   Scoped to devices that have a real cursor and users who haven't asked
+   for reduced motion. Text inputs keep the I-beam so editing still works.
+   Universal selector + every interaction state to defeat post-click flicker
+   from elements with their own cursor rules. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  *,
+  *::before,
+  *::after,
+  *:hover,
+  *:focus,
+  *:active,
+  *:focus-visible {
+    cursor: none !important;
+  }
+  input,
+  input:hover,
+  input:focus,
+  input:active,
+  textarea,
+  textarea:hover,
+  textarea:focus,
+  textarea:active,
+  select,
+  [contenteditable="true"],
+  [contenteditable=""] {
+    cursor: text !important;
+  }
+}
+
+.cursor-ripple {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid hsl(var(--color-cosmos-violet-500-hsl) / 0.65);
+  translate: -50% -50%;
+  animation: cursor-ripple-anim 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  will-change: width, height, opacity;
+}
+body.cursor-hot .cursor-ripple {
+  border-color: hsl(var(--color-cosmos-cyan-500-hsl) / 0.7);
+}
+@keyframes cursor-ripple-anim {
+  0% {
+    width: 10px;
+    height: 10px;
+    opacity: 0.85;
+    border-width: 2px;
+  }
+  100% {
+    width: 100px;
+    height: 100px;
+    opacity: 0;
+    border-width: 0.5px;
+  }
+}
+
+@media (hover: none), (prefers-reduced-motion: reduce) {
+  .cursor-halo,
+  .cursor-ripple {
+    display: none;
+  }
+}

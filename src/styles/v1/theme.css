@@ -1,0 +1,91 @@
+/* v1 portfolio theme — scoped under .v1-root so it doesn't bleed into v2 */
+.v1-root.dark {
+  --bg-primary: #011128;
+  --bg-gradient-accent: rgba(0, 16, 76, 0.76);
+  --bg-gradient-base: #011128;
+  --text-primary: #F5F5F5;
+  --text-secondary: rgba(245, 245, 245, 0.8);
+  --text-muted: rgba(245, 245, 245, 0.6);
+  --text-faint: rgba(245, 245, 245, 0.5);
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --border-hover: rgba(255, 255, 255, 0.4);
+  --border-tag: rgba(255, 255, 255, 0.15);
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --link-decoration: rgba(245, 245, 245, 0.3);
+  --nav-indicator: rgba(245, 245, 245, 0.3);
+  --tag-text: rgba(245, 245, 245, 0.7);
+}
+
+.v1-root.light {
+  --bg-primary: #F5F5F5;
+  --bg-gradient-accent: rgba(200, 210, 255, 0.5);
+  --bg-gradient-base: #F5F5F5;
+  --text-primary: #1a1a2e;
+  --text-secondary: rgba(26, 26, 46, 0.75);
+  --text-muted: rgba(26, 26, 46, 0.55);
+  --text-faint: rgba(26, 26, 46, 0.4);
+  --border-subtle: rgba(0, 0, 0, 0.1);
+  --border-hover: rgba(0, 0, 0, 0.3);
+  --border-tag: rgba(0, 0, 0, 0.12);
+  --card-bg: rgba(0, 0, 0, 0.03);
+  --link-decoration: rgba(26, 26, 46, 0.3);
+  --nav-indicator: rgba(26, 26, 46, 0.3);
+  --tag-text: rgba(26, 26, 46, 0.6);
+}
+
+.v1-root {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Strip OS-shell body chrome (HUD top padding, gradient bg) when v1 is mounted */
+body:has(.v1-root) {
+  padding-top: 0;
+  background: #011128;
+}
+body:has(.v1-root.light) {
+  background: #F5F5F5;
+}
+
+.v1-root .glitch {
+  position: relative;
+  color: var(--text-primary);
+}
+.v1-root .glitch::before,
+.v1-root .glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  color: #a503c1;
+  background: transparent;
+  clip: rect(0, 900px, 0, 0);
+}
+.v1-root .glitch::before {
+  animation: v1GlitchTop 1s infinite linear alternate-reverse;
+}
+.v1-root .glitch::after {
+  animation: v1GlitchBottom 1s infinite linear alternate-reverse;
+  color: #00ffe7;
+}
+
+@keyframes v1GlitchTop {
+  0% { clip: rect(0, 9999px, 0, 0); }
+  10% { clip: rect(0, 9999px, 20px, 0); }
+  20% { clip: rect(0, 9999px, 0, 0); }
+  30% { clip: rect(5px, 9999px, 25px, 0); }
+  100% { clip: rect(0, 9999px, 0, 0); }
+}
+@keyframes v1GlitchBottom {
+  0% { clip: rect(0, 9999px, 0, 0); }
+  10% { clip: rect(20px, 9999px, 40px, 0); }
+  20% { clip: rect(0, 9999px, 0, 0); }
+  30% { clip: rect(10px, 9999px, 30px, 0); }
+  100% { clip: rect(0, 9999px, 0, 0); }
+}

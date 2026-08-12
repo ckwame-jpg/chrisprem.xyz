@@ -1,0 +1,18 @@
+:root {
+  --bg: #050d22;
+  --bg-elev: #0a1430;
+  --bg-deep: #02071a;
+  --fg: #F5F5F5;
+  --fg-2: rgba(245, 245, 245, 0.78);
+  --fg-3: rgba(245, 245, 245, 0.55);
+  --fg-4: rgba(245, 245, 245, 0.32);
+  --line: rgba(255, 255, 255, 0.08);
+  --line-2: rgba(255, 255, 255, 0.16);
+  --accent: #7dd3fc;
+  --accent-2: #a78bfa;
+  --good: #67e866;
+  --warn: #fbbf24;
+  --bad: #ef4444;
+  --mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --sans: 'Geist', system-ui, sans-serif;
+}
