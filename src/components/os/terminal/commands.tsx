@@ -73,7 +73,7 @@ function curlResponse(headers: ReactNode[], body: ReactNode): ReactNode {
 
 interface BoxRow {
   node: ReactNode;
-  /** Exactly the text that renders, markup-free — drives the padding math. */
+  /** Exactly the text that renders, markup-free - drives the padding math. */
   plain: string;
 }
 

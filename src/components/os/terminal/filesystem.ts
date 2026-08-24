@@ -3,7 +3,7 @@ import { UPTIME_STORY, incidentDateUtc, uptimePct } from "@/lib/os/uptimeStory";
 export const FS: Record<string, string> = {
   "about.md": `# Chris Prempeh
 Software Engineer · 2024 → now
-BS in Computer Science, Southern New Hampshire University — Class of 2026
+BS in Computer Science, Southern New Hampshire University - Class of 2026
 
 I build software end-to-end: backend services, frontend UI,
 infra, and the glue in between. Happiest when I own a feature
@@ -77,7 +77,7 @@ The site is the portfolio piece.
   "experience.txt": `2026 (summer) · FIFA World Cup 2026 · Network Technician, AT&T Stadium
 2024 → now    · Sportec Solutions  · VAR Technical Manager
 2021 → 2023   · Amazon             · data entry / analytics
-2024 → 2026   · BS in Computer Science @ SNHU — Class of 2026
+2024 → 2026   · BS in Computer Science @ SNHU - Class of 2026
 `,
   "skills.json": `{
   "backend":   ["python", "fastapi", "sqlalchemy", "jwt", "rest"],

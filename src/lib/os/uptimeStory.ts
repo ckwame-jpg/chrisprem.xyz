@@ -3,7 +3,7 @@ import { mulberry32 } from "./prng";
 /**
  * The one uptime story every surface tells: the chart, the legend, the
  * section header, the terminal `uptime` command, and uptime.log all read
- * from here. Synthetic, but internally consistent — the percentages are
+ * from here. Synthetic, but internally consistent - the percentages are
  * derived from the incident, not invented next to it.
  */
 export const UPTIME_STORY = {
@@ -51,7 +51,7 @@ export function errorBudgetPct(): number {
 
 /**
  * Real calendar date for the incident, derived from "N days ago".
- * Uses the clock — only call from client event handlers or terminal
+ * Uses the clock - only call from client event handlers or terminal
  * output (never in anything that appears in server-rendered HTML).
  */
 export function incidentDateUtc(now: Date = new Date()): string {
@@ -61,7 +61,7 @@ export function incidentDateUtc(now: Date = new Date()): string {
 
 /**
  * Deterministic cells: same output on the server, on every client, for
- * every visitor. Dates are intentionally absent — compute them at
+ * every visitor. Dates are intentionally absent - compute them at
  * hover-time so the SSR HTML stays clock-free.
  */
 export function buildCells(): UptimeCell[] {

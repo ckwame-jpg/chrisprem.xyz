@@ -1,6 +1,6 @@
 /**
  * Tiny latency probe for the measured-RTT readouts. Edge runtime so the
- * response comes from the region nearest the visitor — the number reflects
+ * response comes from the region nearest the visitor - the number reflects
  * network round-trip, not a hop to a fixed serverless region.
  */
 export const runtime = "edge";

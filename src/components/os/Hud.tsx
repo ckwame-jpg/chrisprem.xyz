@@ -26,7 +26,7 @@ export default function Hud() {
       <div className="center">
         <span className="seg">
           <span className="label">fps</span>
-          <b>{fps ?? "—"}</b>
+          <b>{fps ?? "-"}</b>
         </span>
         <span className="seg">
           <span className="label">req/s</span>

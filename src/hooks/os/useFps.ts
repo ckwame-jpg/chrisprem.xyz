@@ -15,7 +15,7 @@ const ROLLING_WINDOW = 3;
 /**
  * Real FPS, but honest about its own noise: shows nothing until two
  * samples exist, averages a small rolling window, and resets on tab
- * visibility changes — so the HUD never flashes "fps 3" just because the
+ * visibility changes - so the HUD never flashes "fps 3" just because the
  * page was loading or the tab was throttled in the background.
  */
 export function useFps(): FpsResult {

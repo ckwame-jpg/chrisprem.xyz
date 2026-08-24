@@ -12,21 +12,21 @@
 | Surface | Status |
 |---|---|
 | Terminal (`help`, `cat`, `sudo hire-me`, tab-complete, history) | Real, fully client-side |
-| Contact form → `/api/contact` | **Real** — emails via Resend, honest 503 when unconfigured |
+| Contact form → `/api/contact` | **Real**: emails via Resend, honest 503 when unconfigured |
 | RTT in the HUD / hero / terminal banner | **Measured** from your browser via `/api/ping` (edge) |
-| GitHub activity strip | **Real** — GraphQL contribution data, 1h cache |
+| GitHub activity strip | **Real**: GraphQL contribution data, 1h cache |
 | FPS in the HUD | Real, smoothed, hides while warming up |
 | Uptime chart + incident story | Synthetic, labeled, and internally consistent (one source of truth: `src/lib/os/uptimeStory.ts`) |
-| Latency globe city pins | Representative demo data, labeled as such — plus your own live RTT |
+| Latency globe city pins | Representative demo data, labeled as such - plus your own live RTT |
 
 ## Features
 
-- **Working terminal** — `ls` / `cd` / `cat` a fake filesystem, `run <project>` to trigger the architecture view, `sudo hire-me` for contact info. Tab completion, ↑/↓ history, ctrl-L.
-- **Architecture diagrams** — five real projects rendered as draggable node graphs (Pointer Events, touch included) with per-component notes, code snippets, and source/demo links.
-- **Vim command bar** — press `:` (or ⌘P) anywhere: `goto contact`, `project habits`, `replay trace`, `source`.
-- **Observability section** — uptime strip, GitHub contribution heatmap, request-trace animation.
-- **Latency globe** — three.js globe at [/playground/latency](https://chrisprem.xyz/playground/latency).
-- **OG share card** — generated at build time (`src/app/opengraph-image.tsx`), terminal-styled.
+- **Working terminal**: `ls` / `cd` / `cat` a fake filesystem, `run <project>` to trigger the architecture view, `sudo hire-me` for contact info. Tab completion, ↑/↓ history, ctrl-L.
+- **Architecture diagrams**: five real projects rendered as draggable node graphs (Pointer Events, touch included) with per-component notes, code snippets, and source/demo links.
+- **Vim command bar**: press `:` (or ⌘P) anywhere: `goto contact`, `project habits`, `replay trace`, `source`.
+- **Observability section**: uptime strip, GitHub contribution heatmap, request-trace animation.
+- **Latency globe**: three.js globe at [/playground/latency](https://chrisprem.xyz/playground/latency).
+- **OG share card**: generated at build time (`src/app/opengraph-image.tsx`), terminal-styled.
 - Reduced-motion support throughout; animation loops park themselves when off-screen or idle.
 
 ## Stack
@@ -35,16 +35,16 @@ Next.js 15 (App Router) · React 19 · TypeScript · vanilla CSS (design tokens 
 
 ## Environment variables
 
-All optional — every feature degrades gracefully without its variable.
+All optional - every feature degrades gracefully without its variable.
 
 | Variable | Purpose | Without it |
 |---|---|---|
 | `NEXT_PUBLIC_SITE_URL` | Canonical origin for metadata/robots/sitemap | Falls back to `https://chrisprem.xyz` |
-| `GITHUB_TOKEN` | Classic PAT, `read:user` — powers `/api/github/contributions` | Activity strip shows a profile link |
+| `GITHUB_TOKEN` | Classic PAT, `read:user`: powers `/api/github/contributions` | Activity strip shows a profile link |
 | `RESEND_API_KEY` | Sending key for `/api/contact` | Endpoint returns an honest 503 with a direct email |
 | `CONTACT_EMAIL` | Recipient for contact messages | Defaults to the address in `src/lib/os/links.ts` |
 
-> **Resend free-tier note:** until a sending domain is verified, Resend only delivers to the email address that owns the Resend account — `CONTACT_EMAIL` must be that address.
+> **Resend free-tier note:** until a sending domain is verified, Resend only delivers to the email address that owns the Resend account - `CONTACT_EMAIL` must be that address.
 
 ## Local development
 

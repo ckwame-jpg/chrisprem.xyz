@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Chris Prempeh · Software Engineer",
     description:
-      "The site is the portfolio piece — a working terminal, live architecture diagrams, and an API-shaped contact form.",
+      "The site is the portfolio piece - a working terminal, live architecture diagrams, and an API-shaped contact form.",
     url: siteUrl,
     siteName: "chrisprem.xyz",
     type: "website",

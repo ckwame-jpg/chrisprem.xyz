@@ -6,7 +6,7 @@ import { EMAIL } from "@/lib/os/links";
 
 const DEFAULT_BODY = `{
   "from": "you@yourcompany.com",
-  "subject": "We're hiring — backend",
+  "subject": "We're hiring - backend",
   "body": "We read your portfolio. When can you talk?"
 }`;
 
@@ -60,7 +60,7 @@ export default function Endpoint() {
         setResponse({
           kind: "error",
           head: "unexpected response",
-          message: `something odd came back — email ${EMAIL} directly`,
+          message: `something odd came back - email ${EMAIL} directly`,
         });
         return;
       }
@@ -90,7 +90,7 @@ export default function Endpoint() {
       setResponse({
         kind: "error",
         head: "connection failed",
-        message: `couldn't reach /api/contact — email ${EMAIL} directly`,
+        message: `couldn't reach /api/contact - email ${EMAIL} directly`,
       });
     }
   };
@@ -121,7 +121,7 @@ export default function Endpoint() {
             {response.kind === "idle" && (
               <span className="dim">
                 ▸ Click &quot;Send request&quot; to fire a real POST to /api/contact.{"\n"}
-                {"  "}It emails me — your address becomes the reply-to.{"\n"}
+                {"  "}It emails me - your address becomes the reply-to.{"\n"}
                 {"  "}Nothing else is stored.
               </span>
             )}

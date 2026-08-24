@@ -3,13 +3,13 @@ import { EMAIL } from "@/lib/os/links";
 
 /**
  * The contact form's real backend. Sends mail through Resend's REST API
- * (plain fetch — no SDK dependency). With no RESEND_API_KEY configured it
+ * (plain fetch - no SDK dependency). With no RESEND_API_KEY configured it
  * returns an honest 503 telling the visitor to email directly, so the
  * site works in every deployment.
  *
  * Free-tier note: until a sending domain is verified, Resend only
  * delivers from onboarding@resend.dev to the address that owns the
- * Resend account — CONTACT_EMAIL must be that address.
+ * Resend account - CONTACT_EMAIL must be that address.
  */
 
 // Best-effort, per-instance rate limiting. Serverless instances don't
@@ -30,7 +30,7 @@ interface ContactBody {
   from?: unknown;
   subject?: unknown;
   body?: unknown;
-  website?: unknown; // honeypot — real visitors never send this
+  website?: unknown; // honeypot - real visitors never send this
 }
 
 function reply(status: number, requestId: string, payload: Record<string, unknown>) {
@@ -108,7 +108,7 @@ export async function POST(req: Request) {
     return reply(503, requestId, {
       ok: false,
       error: "mailer_not_configured",
-      note: "The relay isn't wired up in this deployment yet — email me directly.",
+      note: "The relay isn't wired up in this deployment yet - email me directly.",
       email: EMAIL,
     });
   }
@@ -122,7 +122,7 @@ export async function POST(req: Request) {
         to: [process.env.CONTACT_EMAIL ?? EMAIL],
         reply_to: from,
         subject: `[chrisprem.xyz] ${subject}`,
-        text: `${message}\n\n—\nSent via the chrisprem.xyz contact endpoint\nReply to: ${from}`,
+        text: `${message}\n\n-\nSent via the chrisprem.xyz contact endpoint\nReply to: ${from}`,
       }),
       signal: AbortSignal.timeout(8000),
     });
@@ -130,7 +130,7 @@ export async function POST(req: Request) {
       return reply(502, requestId, {
         ok: false,
         error: "upstream_mail_error",
-        note: "The mail relay hiccuped — email me directly.",
+        note: "The mail relay hiccuped - email me directly.",
         email: EMAIL,
       });
     }
@@ -146,7 +146,7 @@ export async function POST(req: Request) {
     return reply(502, requestId, {
       ok: false,
       error: "upstream_mail_error",
-      note: "The mail relay timed out — email me directly.",
+      note: "The mail relay timed out - email me directly.",
       email: EMAIL,
     });
   }

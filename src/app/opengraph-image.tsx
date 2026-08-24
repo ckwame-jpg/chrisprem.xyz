@@ -6,12 +6,12 @@ import { mulberry32 } from "@/lib/os/prng";
 /**
  * Social share card, generated at build time. Terminal-styled to match
  * the site: starfield, boot rows, ssh prompt, name. Satori constraints
- * apply here — flexbox only, no CSS vars, inline hex colors.
+ * apply here - flexbox only, no CSS vars, inline hex colors.
  */
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = "Chris Prempeh · Software Engineer — chrisprem.xyz";
+export const alt = "Chris Prempeh · Software Engineer - chrisprem.xyz";
 
 const FG = "#f5f5f5";
 const DIM = "rgba(245,245,245,0.55)";
@@ -36,7 +36,7 @@ export default async function OgImage() {
     | undefined;
   try {
     // This route is prerendered at build time on the Node runtime, where
-    // fetch(file://) is unavailable — read the committed TTF directly.
+    // fetch(file://) is unavailable - read the committed TTF directly.
     const file = await readFile(join(process.cwd(), "src/app/_og/GeistMono-Regular.ttf"));
     const data = file.buffer.slice(
       file.byteOffset,

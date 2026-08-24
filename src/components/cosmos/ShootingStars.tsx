@@ -73,7 +73,7 @@ export function ShootingStars() {
       }, delay);
     }
 
-    // The rAF loop only runs while a streak is alive — no point clearing
+    // The rAF loop only runs while a streak is alive - no point clearing
     // a full-screen canvas 60×/s during the 8–14s gaps between streaks.
     function ensureLoop() {
       if (running) return;

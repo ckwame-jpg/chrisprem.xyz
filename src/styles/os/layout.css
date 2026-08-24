@@ -1,4 +1,4 @@
-/* base resets + page chrome — wrapped in @layer base so Tailwind utilities still win */
+/* base resets + page chrome - wrapped in @layer base so Tailwind utilities still win */
 @layer base {
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body {
@@ -78,7 +78,7 @@
   transition: width 0.15s linear;
 }
 
-/* hero — single panel with cosmos backdrop (wireframe canvas mounted as first child) */
+/* hero - single panel with cosmos backdrop (wireframe canvas mounted as first child) */
 .hero {
   position: relative;
   border: 1px solid var(--color-cosmos-violet-edge);
@@ -470,8 +470,8 @@
   stroke: var(--accent); stroke-width: 2;
   filter: drop-shadow(0 0 4px rgba(125, 211, 252, 0.6));
 }
-/* edge variants — discriminated by ArchEdgeOpts.kind */
-.arch-edge-rest { /* default — no override */ }
+/* edge variants - discriminated by ArchEdgeOpts.kind */
+.arch-edge-rest { /* default - no override */ }
 .arch-edge-ws {
   stroke: var(--accent-2);
   stroke-dasharray: 1.5 1;

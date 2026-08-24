@@ -161,7 +161,7 @@ export default function Architecture({ initialProject = "habitual-habits" }: Arc
     });
   }, [switchProject]);
 
-  // trace:hover coupling — only on url-shortener and only when device supports hover
+  // trace:hover coupling - only on url-shortener and only when device supports hover
   useEffect(() => {
     if (activeId !== "url-shortener") {
       setTraceCoupled(false);
@@ -173,7 +173,7 @@ export default function Architecture({ initialProject = "habitual-habits" }: Arc
     return on("trace:hover", ({ active }) => setTraceCoupled(active));
   }, [activeId]);
 
-  // packet animation along edges (direct DOM mutation, no re-render) —
+  // packet animation along edges (direct DOM mutation, no re-render) -
   // parked while the section is off-screen or under reduced motion
   useEffect(() => {
     if (!inView || reduceMotion) return;
@@ -222,7 +222,7 @@ export default function Architecture({ initialProject = "habitual-habits" }: Arc
     };
   }, [edges, displayPositions, traceCoupled, inView, reduceMotion]);
 
-  // Drag handling — Pointer Events with capture, so mouse and touch both
+  // Drag handling - Pointer Events with capture, so mouse and touch both
   // work and interrupted touches (pointercancel) can't leave a stuck drag.
   const dragRef = useRef<{
     nodeId: string;
@@ -361,7 +361,7 @@ export default function Architecture({ initialProject = "habitual-habits" }: Arc
                 <div className="role">click a node →</div>
                 <h4>Or hover an edge</h4>
                 <div style={{ color: "var(--fg-3)" }}>
-                  Each box is a real component — click for the role, the why, and a representative
+                  Each box is a real component - click for the role, the why, and a representative
                   snippet.
                 </div>
               </>

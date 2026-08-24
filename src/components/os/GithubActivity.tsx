@@ -107,7 +107,7 @@ export default function GithubActivity() {
         {state.kind === "loading" && <>Loading contribution data…</>}
         {state.kind === "error" && (
           <>
-            Live contribution data unavailable —{" "}
+            Live contribution data unavailable -{" "}
             <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
               see it on GitHub ↗
             </a>

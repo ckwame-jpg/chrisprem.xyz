@@ -113,7 +113,7 @@ export default function Terminal() {
           node: (
             <>
               <span className="err">{cmd}: command not found</span>{" "}
-              <Dim>— try `help`</Dim>
+              <Dim>- try `help`</Dim>
             </>
           ),
         });

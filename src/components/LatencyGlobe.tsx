@@ -14,7 +14,7 @@
  *     </div>;
  *   }
  *
- * CITIES below is representative demo data (labeled as such in the UI —
+ * CITIES below is representative demo data (labeled as such in the UI -
  * the only live number is the visitor's own measured RTT). To wire real
  * per-city data, swap CITIES with a fetch('/api/uptime') response of the
  * same shape.
@@ -331,7 +331,7 @@ export default function LatencyGlobe() {
       </h1>
       <p className="mt-4 max-w-lg text-[var(--text-secondary)]">
         Representative round-trip times to the{" "}
-        <b className="font-medium text-[var(--text-primary)]">habitual-habits</b> API from 9 cities —
+        <b className="font-medium text-[var(--text-primary)]">habitual-habits</b> API from 9 cities -
         demo data, not a live probe. The one real number is yours, measured from your browser.
         Pin height = RTT. Drag to rotate.
       </p>
@@ -374,7 +374,7 @@ export default function LatencyGlobe() {
           </div>
           <div className="flex-1">
             <b className="block font-sans text-xl font-medium tracking-tight text-sky-300 normal-case">
-              {measuredRtt != null ? `${measuredRtt} ms` : "—"}
+              {measuredRtt != null ? `${measuredRtt} ms` : "-"}
             </b>
             your rtt · live
           </div>

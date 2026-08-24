@@ -36,7 +36,7 @@ export interface ArchDef {
   stats: ReadonlyArray<readonly [label: string, value: string]>;
   nodes: ArchNode[];
   edges: ArchEdge[];
-  /** GitHub repo URL — shown as "source: <slug>" in the side panel. */
+  /** GitHub repo URL - shown as "source: <slug>" in the side panel. */
   repo?: string;
   /** Live deployment URL, when one exists. */
   live?: string;

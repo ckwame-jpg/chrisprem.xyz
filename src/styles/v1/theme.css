@@ -1,4 +1,4 @@
-/* v1 portfolio theme — scoped under .v1-root so it doesn't bleed into v2 */
+/* v1 portfolio theme - scoped under .v1-root so it doesn't bleed into v2 */
 .v1-root.dark {
   --bg-primary: #011128;
   --bg-gradient-accent: rgba(0, 16, 76, 0.76);

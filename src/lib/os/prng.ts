@@ -1,6 +1,6 @@
 /**
  * Deterministic seeded PRNG (mulberry32). Used anywhere we want stable
- * "random-looking" output across server render, hydration, and visitors —
+ * "random-looking" output across server render, hydration, and visitors -
  * e.g. the uptime cells and the OG-image starfield.
  */
 export function mulberry32(seed: number): () => number {

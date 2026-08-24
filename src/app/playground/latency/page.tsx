@@ -5,7 +5,7 @@ import LatencyGlobe from "@/components/LatencyGlobe";
 export const metadata = {
   title: "Latency globe · chrisprem.xyz",
   description:
-    "Representative round-trip times to the habitual-habits API from 9 cities on a 3D globe — plus your own RTT, measured live from your browser.",
+    "Representative round-trip times to the habitual-habits API from 9 cities on a 3D globe - plus your own RTT, measured live from your browser.",
   alternates: { canonical: "/playground/latency" },
 };
 

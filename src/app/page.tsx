@@ -16,7 +16,7 @@ export const metadata = {
 };
 
 const HERO_BIO =
-  "I'm Chris. I build software end-to-end — backend, frontend, infra, and the bits in between. I like systems that have to keep working, interfaces that don't get in the way, and shipping the whole thing. Open to engineering roles across the stack.";
+  "I'm Chris. I build software end-to-end - backend, frontend, infra, and the bits in between. I like systems that have to keep working, interfaces that don't get in the way, and shipping the whole thing. Open to engineering roles across the stack.";
 
 export default function Home() {
   return (
@@ -27,7 +27,7 @@ export default function Home() {
 
         <SectionHead
           num="02 / shell"
-          title="Type something — it's a real terminal."
+          title="Type something - it's a real terminal."
           meta="↑↓ history · TAB complete · ctrl-L clear"
         />
         <Terminal />
